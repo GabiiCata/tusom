@@ -1,0 +1,1 @@
+cloud_sql_proxy -instances=tusom-01:us-central1:tusom-db=tcp:5430
