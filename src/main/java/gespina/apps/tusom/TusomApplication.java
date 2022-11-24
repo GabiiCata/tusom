@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 public class TusomApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(TusomApplication.class, args);
 	}
 
