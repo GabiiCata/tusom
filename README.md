@@ -11,4 +11,4 @@ wget "$URL/cloud-sql-proxy.linux.amd64" -O cloud-sql-proxy
 
 chmod +x cloud-sql-proxy
 
-cloud_sql_proxy -instances=tusom-01:us-central1:tusom-db=tcp:5432
+./cloud-sql-proxy --port 55432  tusom-01:us-central1:tusom-db --gcloud-auth
