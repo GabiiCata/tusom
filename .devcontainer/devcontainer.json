@@ -30,6 +30,8 @@
 		"ghcr.io/guiyomh/features/vim:0": {}
 	},
 
+	"forwardPorts": ["5432","5430" ],
+
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// This can be used to network with other containers or with the host.
 	// "forwardPorts": [5432],

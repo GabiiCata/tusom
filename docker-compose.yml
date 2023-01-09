@@ -1,0 +1,29 @@
+---
+version: '3.8'
+services:
+
+  cloud-sql-proxy:
+      image: gcr.io/cloudsql-docker/gce-proxy:1.11
+      # Port: MySQL (3306), PostgreSQL (5433)
+      command: /cloud_sql_proxy -instances=tusom-01:us-central1:tusom-db=tcp:5430
+      volumes:
+    # this mounts your application default credential on the container, preventing the
+    # 'invalid json file "/config": google: read JWT from JSON credentials: 'type' field is "authorized_user" (expected "service_account")'
+    # error if you point to the actual credential file directly
+        - ~/.config:/root/.config
+      ports:
+        - 5430:5430
+
+      
+
+
+  app:
+    container_name: tusom
+    image: gespina/apps/tusom:v1.0.0
+
+    build: ./
+    ports:
+      - 3000:3000
+    depends_on:
+    - cloud-sql-proxy
+
